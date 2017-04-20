@@ -10,18 +10,18 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        int atBat;
+        double atBat;
 
         System.out.println("Batting Average Calculator");
 
         System.out.println("Enter number of at-bats for your player: ");
-        atBat = scan.nextInt();
+        atBat = scan.nextDouble();
 
-        int[] numBasesEarned = new int[atBat];
+        double[] numBasesEarned = new double[(int) atBat];
 
         for (int i = 0; i < numBasesEarned.length; i++) {
             System.out.println("Enter number of bases earned for your player: ");
-            int result = scan.nextInt();
+            double result = scan.nextDouble();
             numBasesEarned[i] = result;
         }
 
@@ -34,9 +34,9 @@ public class Main {
 
 
 
-    public static double sluggingPercentCalc(int [] numBasesEarned, int atBat) {
+    public static double sluggingPercentCalc(double [] numBasesEarned, double atBat) {
 
-        int sum = IntStream.of(numBasesEarned).sum();
+        double sum = DoubleStream.of(numBasesEarned).sum();
         double sluggingPercent = sum / atBat;
         return sluggingPercent;
 
@@ -50,3 +50,5 @@ public class Main {
 
 
 }
+
+
