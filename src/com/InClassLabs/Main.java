@@ -27,14 +27,16 @@ public class Main {
 
         System.out.println("SLUGGING PERCENTAGE IS " + (sluggingPercentCalc(numBasesEarned, atBat)));
 
-        //System.out.println("BATTING AVERAGE IS" + (battingAverageCalc(numBasesEarnedLessStrike, atBat)));
+        System.out.println("BATTING AVERAGE IS " + (battingAverageCalc(numBasesEarned, atBat)));
 
-        }
-
-
+    }
 
 
-    public static double sluggingPercentCalc(double [] numBasesEarned, double atBat) {
+
+
+
+
+    public static double sluggingPercentCalc(double[] numBasesEarned, double atBat) {
 
         double sum = DoubleStream.of(numBasesEarned).sum();
         double sluggingPercent = sum / atBat;
@@ -43,10 +45,20 @@ public class Main {
     }
 
 
-    //    public static double battingAverageCalc(double numBasesEarnedLessStrike, double atBat) {
-//        double battingAvg = numBasesEarnedLessStrike / atBat;
-//        return battingAvg;
-//    }
+    public static double battingAverageCalc(double [] numBasesEarned, double atBat) {
+
+        double numBasesEarnedLessStrike = 0.0;
+        for (int i = 0; i < numBasesEarned.length; i++){
+            if (numBasesEarned[i] > 0){
+                numBasesEarnedLessStrike = numBasesEarnedLessStrike + 1;
+            }
+        }
+        double battingAvg = numBasesEarnedLessStrike / atBat;
+        return battingAvg;
+    }
+
+
+
 
 
 }
