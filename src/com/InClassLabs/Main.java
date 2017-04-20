@@ -12,26 +12,37 @@ public class Main {
 
         double atBat;
 
+        String keepGoing = "yes";
+
         System.out.println("Batting Average Calculator");
 
-        System.out.println("Enter number of at-bats for your player: ");
-        atBat = scan.nextDouble();
 
-        double[] numBasesEarned = new double[(int) atBat];
+        do {
+            System.out.println("Enter number of at-bats for your player: ");
 
-        for (int i = 0; i < numBasesEarned.length; i++) {
-            System.out.println("Enter number of bases earned for your player: ");
-            double result = scan.nextDouble();
-            numBasesEarned[i] = result;
-        }
+            atBat = scan.nextDouble();
 
-        System.out.println("SLUGGING PERCENTAGE IS " + (sluggingPercentCalc(numBasesEarned, atBat)));
+            double[] numBasesEarned = new double[(int) atBat];
 
-        System.out.println("BATTING AVERAGE IS " + (battingAverageCalc(numBasesEarned, atBat)));
+            for (int i = 0; i < numBasesEarned.length; i++) {
+                System.out.println("Enter number of bases earned for your player: ");
+                double result = scan.nextDouble();
+                numBasesEarned[i] = result;
+            }
+            scan.nextLine();
+
+            System.out.println("SLUGGING PERCENTAGE IS " + (sluggingPercentCalc(numBasesEarned, atBat)));
+
+            System.out.println("BATTING AVERAGE IS " + (battingAverageCalc(numBasesEarned, atBat)));
+
+            System.out.println("Would you like to enter data for another player? Enter 'yes' or 'no': ");
+            keepGoing = scan.nextLine();
+
+
+        } while (keepGoing.equalsIgnoreCase("yes"));
+        System.out.println("Exiting the batting calculator.");
 
     }
-
-
 
 
 
@@ -62,5 +73,6 @@ public class Main {
 
 
 }
+
 
 
